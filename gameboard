@@ -1,0 +1,37 @@
+var generate = function(length, width, pieces)
+{
+    var res = new Array(length).fill(' ');
+    res = res.map(_ => new Array(width).fill(' '));
+
+    // Sort pieces list by row (asc)
+    
+    //console.log("before:",pieces);
+    pieces.sort((a,b) => {return a.row - b.row});
+    //console.log("after:",pieces);
+
+    pieces.forEach(a => {
+        if (a.row < 0 || a.col < 0){
+            return;
+        }
+        if(a.row >= length || a.col >= width){
+            return;
+        }
+        else{
+            res[a.row][a.col] = a.value;
+        }
+    })
+    return res;
+}
+
+// Create a list of objects which represent pieces to be added in board
+// Note that the last piece is incorrect
+var sample_pieces = [
+    {row : 2, col : 0, value: 'X'}, {row : 2, col : 1, value: 'O'},
+    {row : 0, col : 0, value: 'X'}, {row : 0, col : 1, value: 'O'},
+    {row : 0, col : 2, value: 'O'}, {row : 1, col : 0, value: 'X'},
+    {row : 1, col : 1, value: 'X'}, {row : 1, col : 2, value: 'O'},
+    {row : 2, col : 2, value: 'O'}, {row : 4, col : 3, value: 'W'},
+];
+
+var board = generate(3 , 3, sample_pieces); // Generate board
+console.log(board);
