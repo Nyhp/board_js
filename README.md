@@ -1,4 +1,4 @@
-# board_js
+# chessboard_js
 
 Create a chessboard-like table and fill with symbol.
 
