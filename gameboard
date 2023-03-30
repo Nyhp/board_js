@@ -1,5 +1,7 @@
 var generate = function(length, width, pieces)
 {
+    //create table
+    
     var res = new Array(length).fill(' ');
     res = res.map(_ => new Array(width).fill(' '));
 
